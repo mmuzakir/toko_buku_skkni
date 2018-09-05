@@ -35,7 +35,19 @@
 			</tr>
 			<tr>			
 				<td>Penerbit</td>
-				<td><input type="text" name="Penerbit"></td>
+				<td>
+					<?php
+						include "koneksi.php";
+						echo "<select name='Penerbit'>";
+						$query="SELECT * FROM tabel_penerbit ORDER BY Id_Penerbit";
+						$tampil=mysqli_query($koneksi,$query);
+						while($combo=mysqli_fetch_array($tampil))
+						{
+						    echo "<option value=$combo[Id_Penerbit] selected>$combo[Nama_Penerbit]</option>";
+						}
+						echo "</select>";
+					?>
+				</td>
 			</tr>
 
 
